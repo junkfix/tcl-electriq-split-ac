@@ -1,14 +1,21 @@
 # electriq-split-ac
 
 TCL Air Conditioner
+
 iQool-3MS9K9K9K
+
 iQool-3MS9K9K9KB
+
 iQool-2MS9K9K
+
 iQool-2MS9K9KB
+
 iQool-2MS12K12K
+
 iQool-2MS12K12KB
 
 Converted from Tuya Smartlife app to generic esp8266 arduino
+
 Serial 9600, SERIAL_8E1
 ```
 TX
