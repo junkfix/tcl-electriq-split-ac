@@ -24,7 +24,7 @@ float currTemp = 0;
 uint8_t rx_pos = 0;
 uint8_t rx_line [70];
 
-unsigned long minidelay = millis();
+unsigned long minidelay = 0;
 unsigned long hbeat = 0;
 byte hasStatus=0;
 byte lastCommandType=0;
