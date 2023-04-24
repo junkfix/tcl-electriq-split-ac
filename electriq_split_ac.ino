@@ -69,6 +69,7 @@ void loop() {
 					ac_state[AC_STMP]=( rx_line[8] & 0x0F ) + 16;
 					ac_state[AC_HEALTH]=rx_line[9] >> 2 & 1;
 					ac_state[AC_SWING]=rx_line[10] >> 6 & 1;
+					ac_state[AC_SLEEP]=rx_line[19] & 1;
 					
 					currTemp = (( (rx_line[17] << 8) | rx_line[18] ) / 374 - 32)/1.8;
 					
