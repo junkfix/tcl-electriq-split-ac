@@ -33,7 +33,7 @@ BB00010319010020080F000000000000000000000000000000000000000086  off
 |[ 5] | 01 | 
 |[ 6] | 00 | 
 |[ 7] | 60 | eco, display, power (32+ power on = +4, display on = +64, eco on = +128  		0x60 = power off 	0xE4= power on eco on  0x64=power on  eco off 
-|[ 8] | 03 | mode 01 heat, 02 dry, 03 cool, 07 fan,  08 auto,    41=turbo-heat   43=turbo-cool (turbo = 0x40+ 0x01..0x08)
+|[ 8] | 03 | mode 01 heat, 02 dry, 03 cool, 07 fan,  08 auto,  health(+16),    41=turbo-heat   43=turbo-cool (turbo = 0x40+ 0x01..0x08)
 |[ 9] | 06 | settemp 31 - x
 |[10] | 02 | fan+swing modes 
 |[11] | 00 | 
