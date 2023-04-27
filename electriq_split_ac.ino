@@ -64,6 +64,8 @@ void loop() {
 					
 					//0=cool 1=fan  2=dry 3=heat 4=auto 
 					ac_state[AC_MODE]=(rx_line[7] & 0x0F) - 1;
+					if(ac_state[AC_MODE]>4){ac_state[AC_MODE]=4;}
+					
 					//0=auto 1=low 2=med 3=high
 					ac_state[AC_FAN]=(rx_line[8] >> 4) - 8; 					
 					ac_state[AC_STMP]=( rx_line[8] & 0x0F ) + 16;
@@ -91,7 +93,7 @@ void loop() {
 			byte AcCmd[] = {0};
 			AcCmd[0] = 0xBB; AcCmd[2] = 0x1; AcCmd[3] = 0x3; AcCmd[4] = 0x19; AcCmd[5] = 0x1;
 			const byte modeMap[] = {3,7,2,1,8};
-			const byte fanMap[] = {0,2,3,5};
+			const byte fanMap[] = {0,2,3,5,0};
 
 			AcCmd[7] = 32;
 			
@@ -102,7 +104,9 @@ void loop() {
 			if(ac_mqtt[AC_ECO]){AcCmd[7] += 128;}
 			
 			// 0=cool 1=fan  2=dry 3=heat 4=auto
-			AcCmd[8] = modeMap[ ac_mqtt[AC_MODE] ]; 
+			AcCmd[8] = modeMap[ ac_mqtt[AC_MODE] ];
+			
+			if(ac_mqtt[AC_HEALTH] && ac_mqtt[AC_POWER]){AcCmd[8] += 16;}
 			
 			if(ac_mqtt[AC_TURBO]){AcCmd[8] += 64;}
 			
