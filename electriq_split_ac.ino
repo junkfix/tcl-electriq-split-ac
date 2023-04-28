@@ -2,8 +2,8 @@
 
 //will need to add wifi and mqtt codes.
 
-uint8_t ac_state[11]={0};
-uint8_t ac_mqtt[11]={0};
+uint8_t ac_state[12]={0};
+uint8_t ac_mqtt[12]={0};
 
 byte pendingCommand=0;
 
@@ -18,6 +18,7 @@ byte pendingCommand=0;
 #define AC_SLEEP	8
 #define AC_HEALTH	9
 #define AC_MUTE		10
+#define AC_BEEP		11
 
 float currTemp = 0;
 
@@ -33,6 +34,7 @@ void setup() {
 	Serial.begin(9600,SERIAL_8E1);
 	Serial.swap();
 	//GPIO15 (TX) and GPIO13 (RX)
+	ac_mqtt[AC_BEEP]=1;
 }
 
 void loop() {
@@ -95,28 +97,39 @@ void loop() {
 			const byte modeMap[] = {3,7,2,1,8};
 			const byte fanMap[] = {0,2,3,5,0};
 
-			AcCmd[7] = 32;
+			AcCmd[7] = 0; //[7]=eco,display,beep,ontimerenable, offtimerenable,power,0,0
 			
 			if(ac_mqtt[AC_POWER]){AcCmd[7] += 4;}
+			
+			if(ac_mqtt[AC_BEEP]){AcCmd[7] += 32;}
 			
 			if(ac_mqtt[AC_DISPLAY]){AcCmd[7] +=  64;}
 			
 			if(ac_mqtt[AC_ECO]){AcCmd[7] += 128;}
 			
-			// 0=cool 1=fan  2=dry 3=heat 4=auto
+			//[8] = mute,0,turbo,health,mode(4)  0=cool 1=fan  2=dry 3=heat 4=auto 
 			AcCmd[8] = modeMap[ ac_mqtt[AC_MODE] ];
 			
 			if(ac_mqtt[AC_HEALTH] && ac_mqtt[AC_POWER]){AcCmd[8] += 16;}
 			
 			if(ac_mqtt[AC_TURBO]){AcCmd[8] += 64;}
 			
+			if(ac_mqtt[AC_MUTE]){AcCmd[8] += 128;}
+			
+			//[9] = 0,0,0,0,temp(4)
 			//16-30
 			AcCmd[9] = 31 - ac_mqtt[AC_STMP];
 			
+			//[10] = 0,timerindicator,swingv(3),fan(3)
 			//0=auto 1=low 2=med 3=high
 			AcCmd[10] = fanMap[ ac_mqtt[AC_FAN] ];
 			
 			if(ac_mqtt[AC_SWING]){AcCmd[10] += 56;}
+			
+			//[11] = 0,offtimer(6),0
+			//[12] = 0,ontimer(6),0
+			//[13] = ?
+			//[14] = 0,0,halfdegree,0,swingh,0,0,0
 			
 			AcCmd[19] = (ac_mqtt[AC_SLEEP])? 1 : 0;
 			
