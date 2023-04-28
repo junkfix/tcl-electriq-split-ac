@@ -32,14 +32,14 @@ BB00010319010020080F000000000000000000000000000000000000000086  off
 |[ 4] | 19 | data length from here
 |[ 5] | 01 | 
 |[ 6] | 00 | 
-|[ 7] | 60 | eco, display, power (32+ power on = +4, display on = +64, eco on = +128  		0x60 = power off 	0xE4= power on eco on  0x64=power on  eco off 
-|[ 8] | 03 | mode 01 heat, 02 dry, 03 cool, 07 fan,  08 auto,  health(+16),    41=turbo-heat   43=turbo-cool (turbo = 0x40+ 0x01..0x08)
-|[ 9] | 06 | settemp 31 - x
-|[10] | 02 | fan+swing modes 
-|[11] | 00 | 
-|[12] | 00 | cf 80=f 0=c
+|[ 7] | 60 | eco,display,beep,ontimerenable, offtimerenable,power,0,0
+|[ 8] | 03 | mute,0,turbo,health, mode(4)  mode 01 heat, 02 dry, 03 cool, 07 fan,  08 auto,  health(+16),    41=turbo-heat   43=turbo-cool (turbo = 0x40+ 0x01..0x08)
+|[ 9] | 06 | 0,0,0,0, temp(4)   settemp 31 - x
+|[10] | 02 | 0,timerindicator,swingv(3),fan(3)		fan+swing modes 
+|[11] | 00 | 0,offtimer(6),0
+|[12] | 00 | fahrenheit,ontimer(6),0	cf 80=f 0=c
 |[13] | 00 | 
-|[14] | 00 | 
+|[14] | 00 | 0,0,halfdegree,0,swingh,0,0,0
 |[15] | 00 | 
 |[16] | 00 | 
 |[17] | 00 | 
@@ -110,7 +110,7 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[41] | 00 | 
 |[42] | 00 | 
 |[43] | 00 | 
-|[44] | 00 | 
+|[44] | 00 | fault
 |[45] | 00 | 
 |[46] | 00 | compressor?
 |[47] | 00 | 
