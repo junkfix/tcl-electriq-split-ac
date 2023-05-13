@@ -16,7 +16,7 @@ iQool-2MS12K12KB
 
 Converted from Tuya Smartlife app to generic esp8266 arduino TYWE1S on a TYJW2 v2.0.0 ESP8266EX 2MB, no soldering required.
 
-Serial 9600, SERIAL_8E1
+Serial 9600, SERIAL_8E1, 5V logic
 ```
 TX
 BB000104020100BD request status
