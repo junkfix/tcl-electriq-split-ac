@@ -85,7 +85,7 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[16] | 00 | 
 |[17] | 69 | curr temp
 |[18] | 2b | curr temp
-|[19] | 88 | 88 sleep off, 89 sleep on
+|[19] | 88 | 88 sleep off, 89 sleep on, 08(compressor off/deepsleep?),88(compressor on/waiting?)
 |[20] | 00 | 
 |[21] | 00 | 
 |[22] | 00 | 
@@ -105,14 +105,14 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[36] | 00 | compressor?
 |[37] | 00 | compressor?
 |[38] | 00 | compressor?
-|[39] | 00 | compressor?
-|[40] | 00 | compressor?
+|[39] | 00 | compressor fan?
+|[40] | 80 | 0x80 -> 8A cool mode,  0xC0  -> 0xCA heat mode  C0/80 idle
 |[41] | 00 | 
 |[42] | 00 | 
 |[43] | 00 | 
 |[44] | 00 | fault
 |[45] | 00 | 
-|[46] | 00 | compressor?
+|[46] | 00 | outside motor?
 |[47] | 00 | 
 |[48] | 00 | 
 |[49] | 44 | 
