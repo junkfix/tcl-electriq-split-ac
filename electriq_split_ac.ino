@@ -97,7 +97,7 @@ void loop() {
 			const byte modeMap[] = {3,7,2,1,8};
 			const byte fanMap[] = {0,2,3,5,0};
 
-			AcCmd[7] = 0; //[7]=eco,display,beep,ontimerenable, offtimerenable,power,0,0
+			AcCmd[7] = 0; //[7]=eco,display,beep,ontimerenable?, offtimerenable?,power,0,0
 			
 			if(ac_mqtt[AC_POWER]){AcCmd[7] += 4;}
 			
@@ -120,7 +120,7 @@ void loop() {
 			//16-30
 			AcCmd[9] = 31 - ac_mqtt[AC_STMP];
 			
-			//[10] = 0,timerindicator,swingv(3),fan(3)
+			//[10] = 0,timerindicator?,swingv(3),fan(3)
 			//0=auto 1=low 2=med 3=high
 			AcCmd[10] = fanMap[ ac_mqtt[AC_FAN] ];
 			
