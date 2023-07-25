@@ -92,7 +92,7 @@ void loop() {
 
 		if(hasStatus && pendingCommand){
 			pendingCommand = 0;hasStatus = 0;
-			byte AcCmd[] = {0};
+			byte AcCmd[31] = {0};
 			AcCmd[0] = 0xBB; AcCmd[2] = 0x1; AcCmd[3] = 0x3; AcCmd[4] = 0x19; AcCmd[5] = 0x1;
 			const byte modeMap[] = {3,7,2,1,8};
 			const byte fanMap[] = {0,2,3,5,0};
