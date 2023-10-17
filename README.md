@@ -1,5 +1,7 @@
 # electriq-split-ac
 
+![](https://github.com/htmltiger/tcl-electriq-split-ac/blob/main/electriq-split-ac.png?raw=true)
+
 TCL Air Conditioner
 
 iQool-3MS9K9K9K
@@ -127,3 +129,5 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[58] | 00 | 
 |[59] | 00 | 
 |[60] | 00 | checksum
+
+
