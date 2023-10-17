@@ -1,6 +1,6 @@
 # electriq-split-ac
 
-![](https://github.com/htmltiger/tcl-electriq-split-ac/blob/main/electriq-split-ac.png?raw=true)
+![](electriq-split-ac.png)
 
 TCL Air Conditioner
 
