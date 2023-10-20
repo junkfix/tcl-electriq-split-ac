@@ -107,13 +107,13 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[36] | 00 | temp pipe in   -32
 |[37] | 00 | compressor?
 |[38] | 00 | compressor?
-|[39] | 00 | compressor fan?
-|[40] | 80 | 0x80 -> 8A cool mode,  0xC0  -> 0xCA heat mode  C0/80 idle
+|[39] | 00 | compressor amps / 100?
+|[40] | 80 | 0x8A cool mode,   0xCA heat mode  0x80 idle, 0xC0 2min compressor cooldown period
 |[41] | 00 | 
 |[42] | 00 | 
 |[43] | 00 | 
 |[44] | 00 | fault
-|[45] | 00 | 
+|[45] | 00 | supply voltage
 |[46] | 00 | outside motor?
 |[47] | 00 | 
 |[48] | 00 | 
