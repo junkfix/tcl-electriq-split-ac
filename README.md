@@ -131,3 +131,6 @@ BB0100	03	370400	32	9A	00	40	000000000000	6903	080000000000000000000069FF4000	00
 |[60] | 00 | checksum
 
 
+---
+
+<a href="https://www.buymeacoffee.com/htmltiger"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee"></a>
